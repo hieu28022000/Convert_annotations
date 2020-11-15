@@ -12,12 +12,12 @@ from os.path import join
 
 
 def getImagesInDir():
-    
     image_list = []
-    for filename in glob.glob('./images/*.jpg'):
-        image_name =filename.split("/")[1]
-        image_list.append(image_name)
-
+    for ext in ["*.jpg", "*.png", "*.jpeg"]:
+        filenames = glob.glob(os.path.join('images/', ext))
+        for filename in filenames:
+            image_name = filename.split("\\")[1]
+            image_list.append(image_name)
     return image_list
 
 def convert(size, box):
